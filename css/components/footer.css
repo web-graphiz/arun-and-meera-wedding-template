@@ -1,0 +1,34 @@
+/* ==========================================================================
+   COMPONENT: 9. FOOTER & COPYRIGHT
+   ========================================================================== */
+
+footer {
+  background: var(--teal-dark);
+  color: var(--bg-primary);
+  padding: 4rem 0 2rem 0;
+  text-align: center;
+  border-top: 3px solid var(--gold-primary);
+}
+
+.footer-names {
+  font-family: var(--font-script);
+  font-size: 3.5rem;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+}
+
+.footer-hashtag {
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  color: var(--teal-soft);
+  margin-bottom: 2rem;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}

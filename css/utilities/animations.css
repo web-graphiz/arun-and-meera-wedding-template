@@ -1,0 +1,91 @@
+/* ==========================================================================
+   UTILITY: ANIMATIONS & SCROLL TRANSITIONS
+   ========================================================================== */
+
+/* Scroll Reveal Observers */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s ease;
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s ease;
+}
+
+.zoom-in.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Shimmer Gold Effect */
+.shimmer-text {
+  background: linear-gradient(90deg, #c5a059 0%, #ffffff 50%, #c5a059 100%);
+  background-size: 200% auto;
+  color: #000000;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Party Popper Confetti Canvas */
+#party-popper-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10006;
+}
+
+/* Scratch Card Sparkle Pulse Indicator */
+.scratch-hint-pulse {
+  animation: scratchPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes scratchPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.6));
+  }
+}

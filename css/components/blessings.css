@@ -1,0 +1,56 @@
+/* ==========================================================================
+   COMPONENT: 3. BLESSINGS & FAMILY HOSTS
+   ========================================================================== */
+
+.blessing-section {
+  background-color: #F3F8F6;
+  border-top: 1px solid rgba(197, 160, 89, 0.25);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+  padding: 6.5rem 1.5rem;
+  text-align: center;
+}
+
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 3rem auto 0 auto;
+}
+
+.family-card {
+  background: var(--bg-card);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  transition: var(--transition);
+}
+
+.family-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
+}
+
+.family-title {
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 0.5rem;
+}
+
+.family-names {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--teal-primary);
+  font-weight: 600;
+}
+
+.family-relation {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-style: italic;
+}

@@ -1,0 +1,26 @@
+/* ==========================================================================
+   MASTER STYLESHEET
+   Project: Arun & Meera — Indian Wedding Invitation
+   Architecture: Modular Component-Based CSS
+   ========================================================================== */
+
+/* 1. Base Layer */
+@import url('./base/variables.css');
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+
+/* 2. Components Layer */
+@import url('./components/splash.css');
+@import url('./components/audio-player.css');
+@import url('./components/navbar.css');
+@import url('./components/hero.css');
+@import url('./components/blessings.css');
+@import url('./components/story.css');
+@import url('./components/events.css');
+@import url('./components/gallery.css');
+@import url('./components/venue.css');
+@import url('./components/rsvp.css');
+@import url('./components/footer.css');
+
+/* 3. Utilities Layer */
+@import url('./utilities/animations.css');

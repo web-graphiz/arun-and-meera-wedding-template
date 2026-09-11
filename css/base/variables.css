@@ -1,0 +1,61 @@
+/* ==========================================================================
+   CSS DESIGN TOKENS & SYSTEM VARIABLES
+   Project: Arun & Meera — Royal Indian Wedding Invitation
+   Architecture: Centralized CSS Custom Properties (Design Tokens)
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1. COLOR PALETTE: ROYAL MARWADI & EUCALYPTUS BOTANICALS
+     ------------------------------------------------------------------------ */
+  /* Background Canvas & Card Surfaces */
+  --bg-primary: #FAF8F4;        /* Warm ivory alabaster background */
+  --bg-secondary: #F3EFE6;      /* Sandstone tint for alternating section backdrops */
+  --bg-card: #FFFFFF;           /* Crisp card surface */
+  --bg-glass: rgba(255, 255, 255, 0.9); /* Translucent backdrop for glassmorphism */
+
+  /* Text & Typography Contrast */
+  --text-dark: #244B40;         /* Deep eucalyptus / dark forest green for primary headings & body */
+  --text-muted: #3D685E;        /* Medium sage teal for secondary descriptions & captions */
+  --text-light: #6E948B;        /* Soft dusty sage for placeholders & subtle labels */
+  
+  /* Eucalyptus Green Accent Scale */
+  --teal-primary: #244B40;      /* Signature deep Eucalyptus Green */
+  --teal-dark: #17362E;         /* Dark emerald shade for hover & active states */
+  --teal-light: #EBF3F1;        /* Pale icy seafoam tint for badges and soft chip backgrounds */
+  --teal-accent: #628F87;       /* Dusty teal watercolor for dividers and borders */
+  --teal-soft: #A3C5C0;         /* Soft pastel teal for secondary highlights */
+
+  /* Royal Metallic Gold Palette & Shimmer Gradients */
+  --gold-primary: #C5A059;      /* Warm Metallic Gold for emblems, borders, and buttons */
+  --gold-dark: #A6813B;         /* Dark burnished gold for uppercase section tags */
+  --gold-light: #E8D09E;        /* Champagne highlight gold */
+  --gold-gradient: linear-gradient(135deg, #C5A059 0%, #ECDDB0 40%, #B88F42 70%, #DFC588 100%);
+  --gold-gradient-soft: linear-gradient(135deg, #C5A059 0%, #F5E8C8 50%, #C5A059 100%);
+
+  /* ------------------------------------------------------------------------
+     2. TYPOGRAPHY FONT FAMILIES
+     ------------------------------------------------------------------------ */
+  --font-script: 'Great Vibes', cursive;            /* Calligraphic signature & romantic accents */
+  --font-title: 'Cinzel', serif;                    /* Roman lapidary font for badges, dates & tags */
+  --font-heading: 'Playfair Display', serif;        /* High-contrast editorial display font for H1/H2 */
+  --font-serif: 'Cormorant Garamond', serif;        /* Elegant serif for poetry, quotes & descriptions */
+  --font-body: 'Montserrat', sans-serif;            /* Clean modern sans-serif for legible UI body text */
+
+  /* ------------------------------------------------------------------------
+     3. ELEVATION, BOX SHADOWS & RADII
+     ------------------------------------------------------------------------ */
+  --shadow-soft: 0 10px 30px rgba(36, 75, 64, 0.08);   /* Subtle elevation for cards & pills */
+  --shadow-card: 0 15px 45px rgba(36, 75, 64, 0.12);   /* High-depth elevation for floating modals */
+  --shadow-gold: 0 8px 25px rgba(197, 160, 89, 0.28);  /* Shimmering gold glow for primary CTA buttons */
+  
+  --radius-sm: 8px;             /* Small chips & badge corners */
+  --radius-md: 16px;            /* Event cards & image thumbnails */
+  --radius-lg: 24px;            /* Hero ticket & modal dialog corners */
+  --radius-full: 9999px;        /* Circular buttons & pill capsules */
+
+  /* ------------------------------------------------------------------------
+     4. TIMING & EASING CURVES
+     ------------------------------------------------------------------------ */
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Natural cubic-bezier for smooth interactions */
+}

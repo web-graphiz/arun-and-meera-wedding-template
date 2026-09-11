@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arun & Meera — Indian Wedding Invitation</title>
+  <meta name="description" content="You are cordially invited to celebrate the royal wedding of Arun & Meera. Explore event details, schedule, venue, photo gallery, and RSVP.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. INVITATION COVER / LUXURY 3D SPLASH SCREEN
+       ========================================================================== -->
+  <div id="invitation-cover">
+    <!-- Interactive Background Particle Canvas -->
+    <canvas id="splash-particle-canvas"></canvas>
+
+    <div class="envelope-wrapper" id="envelope-card-wrapper">
+      <div class="royal-envelope-box">
+        <!-- Floating Floral Gold Corner Motifs -->
+        <div class="corner-ornament corner-tl">❖</div>
+        <div class="corner-ornament corner-tr">❖</div>
+        <div class="corner-ornament corner-bl">❖</div>
+        <div class="corner-ornament corner-br">❖</div>
+
+        <!-- Auspicious Top Mantra -->
+        <div class="splash-auspicious">
+          <svg class="ganesha-svg-sm" viewBox="0 0 24 24">
+            <path d="M12,2A3,3 0 0,0 9,5C9,6.08 9.58,7.03 10.44,7.56C8.84,8.16 7.64,9.5 7.22,11.2C6.35,10.66 5.3,10.5 4.38,10.9C3.1,11.47 2.3,12.75 2.3,14.15C2.3,16.5 4.75,18 7,18C8.5,18 9.87,17.27 10.74,16.14C11.36,16.69 12.14,17 13,17C14.66,17 16,15.66 16,14C16,13.21 15.69,12.5 15.19,11.96C16.84,11.35 18,9.8 18,8C18,5.79 16.21,4 14,4C13.65,4 13.31,4.05 13,4.13C12.7,2.9 11.47,2 12,2M12,4A1,1 0 0,1 13,5A1,1 0 0,1 12,6A1,1 0 0,1 11,5A1,1 0 0,1 12,4M14,6A2,2 0 0,1 16,8A2,2 0 0,1 14,10A2,2 0 0,1 12,8A2,2 0 0,1 14,6M7,12.5C7.83,12.5 8.5,13.17 8.5,14C8.5,14.83 7.83,15.5 7,15.5C6.17,15.5 5.5,14.83 5.5,14C5.5,13.17 6.17,12.5 7,12.5Z"/>
+          </svg>
+          <span>|| ॐ श्री गणेशाय नमः ||</span>
+        </div>
+
+        <!-- Royal Arch Couple Portrait Frame -->
+        <div class="splash-portrait-wrapper" id="splash-portrait-btn" onclick="openInvitationCover()" title="Tap to Open Invitation">
+          <div class="splash-glow-aura"></div>
+          <div class="splash-portrait-ring"></div>
+          <div class="splash-portrait-inner">
+            <img src="assets/images/hero-couple.jpg" alt="Arun & Meera" class="splash-portrait-img">
+            <div class="splash-shimmer-sweep"></div>
+          </div>
+          <div class="splash-portrait-badge">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <!-- Tap Ripple Ring Effect -->
+          <div class="tap-cue-pulse"></div>
+        </div>
+
+        <span class="envelope-sub">Auspicious Royal Wedding Invitation</span>
+        <h1 class="envelope-names gold-text-shimmer">Arun &amp; Meera</h1>
+
+        <p class="splash-quote">
+          Together with their families, cordially invite you to celebrate the beginning of their eternal journey of love.
+        </p>
+
+        <!-- Engaging Animated Action Button -->
+        <div class="splash-cta-container">
+          <button class="btn-royal-open" id="open-invite-btn" onclick="openInvitationCover()">
+            <span class="btn-royal-icon"><i class="fa-solid fa-envelope-open-text"></i></span>
+            <span class="btn-royal-text">Open Royal Invitation</span>
+            <span class="btn-royal-sparkle"><i class="fa-solid fa-sparkles"></i></span>
+          </button>
+          <div class="music-hint-pill">
+            <i class="fa-solid fa-music"></i> Tap to open with music &amp; blessings
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING AUDIO CONTROLLER -->
+  <div class="audio-controller" id="audio-controller" title="Toggle Wedding Ambience Music">
+    <div class="equalizer-bars">
+      <div class="equalizer-bar"></div>
+      <div class="equalizer-bar"></div>
+      <div class="equalizer-bar"></div>
+    </div>
+  </div>
+
+  <!-- PARTY POPPER FULLSCREEN CANVAS -->
+  <canvas id="party-popper-canvas"></canvas>
+
+  <!-- ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand">Arun & Meera</a>
+      <button class="mobile-toggle" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#blessings" class="nav-link">Blessings</a></li>
+        <li><a href="#story" class="nav-link">Our Story</a></li>
+        <li><a href="#events" class="nav-link">Events</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#venue" class="nav-link">Venue</a></li>
+        <li><a href="#rsvp" class="nav-link">RSVP</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       2. HERO SECTION (WIDE LUXURY 2-COLUMN TEMPLATE DESIGN)
+       ========================================================================== -->
+  <section class="hero hero-wide-section" id="hero">
+    <div class="container hero-wide-container">
+      <div class="hero-wide-card zoom-in">
+        <div class="hero-wide-grid">
+          
+          <!-- LEFT COLUMN: ROYAL ARCH PORTRAIT & AUSPICIOUS CREST -->
+          <div class="hero-left-column">
+            <!-- Auspicious Mantra & Ganesha Icon -->
+            <div class="auspicious-header">
+              <svg class="ganesha-svg" viewBox="0 0 24 24">
+                <path d="M12,2A3,3 0 0,0 9,5C9,6.08 9.58,7.03 10.44,7.56C8.84,8.16 7.64,9.5 7.22,11.2C6.35,10.66 5.3,10.5 4.38,10.9C3.1,11.47 2.3,12.75 2.3,14.15C2.3,16.5 4.75,18 7,18C8.5,18 9.87,17.27 10.74,16.14C11.36,16.69 12.14,17 13,17C14.66,17 16,15.66 16,14C16,13.21 15.69,12.5 15.19,11.96C16.84,11.35 18,9.8 18,8C18,5.79 16.21,4 14,4C13.65,4 13.31,4.05 13,4.13C12.7,2.9 11.47,2 12,2M12,4A1,1 0 0,1 13,5A1,1 0 0,1 12,6A1,1 0 0,1 11,5A1,1 0 0,1 12,4M14,6A2,2 0 0,1 16,8A2,2 0 0,1 14,10A2,2 0 0,1 12,8A2,2 0 0,1 14,6M7,12.5C7.83,12.5 8.5,13.17 8.5,14C8.5,14.83 7.83,15.5 7,15.5C6.17,15.5 5.5,14.83 5.5,14C5.5,13.17 6.17,12.5 7,12.5Z"/>
+              </svg>
+              <span class="auspicious-text">|| ॐ श्री गणेशाय नमः ||</span>
+            </div>
+
+            <!-- Arch Frame Couple Portrait -->
+            <div class="hero-arch-frame">
+              <img src="assets/images/hero-couple.jpg" alt="Arun and Meera" class="hero-couple-img">
+            </div>
+
+            <div class="hero-portrait-tagline">
+              <span class="tagline-ornament">❖</span>
+              <span>Auspicious Marwadi Royal Union</span>
+              <span class="tagline-ornament">❖</span>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: CEREMONY ANNOUNCEMENT, NAMES, SCRATCH TICKET & DETAILS -->
+          <div class="hero-right-column">
+            <!-- Invitation Subheading -->
+            <div class="hero-tag-sub">YOU ARE INVITED TO OUR</div>
+            
+            <h1 class="hero-event-title">
+              WEDDING
+              <span class="hero-script-flourish">Ceremony</span>
+            </h1>
+            
+            <div class="gold-heart-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">💛</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <!-- Families Line -->
+            <div class="hero-family-tag">TOGETHER WITH THEIR FAMILIES</div>
+
+            <!-- Couple Names -->
+            <div class="hero-names-block">
+              <div class="hero-couple-name">Arun</div>
+              <div class="hero-and-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-word">and</span>
+                <span class="pill-dot"></span>
+              </div>
+              <div class="hero-couple-name">Meera</div>
+            </div>
+
+            <!-- Invitation Message -->
+            <p class="hero-invite-message">
+              JOYFULLY INVITE YOU TO CELEBRATE THIS SPECIAL MOMENT IN THEIR LIVES
+            </p>
+
+            <!-- ============================================================
+                 SLEEK INTERACTIVE GOLDEN SCRATCH CARD TICKET
+                 ============================================================ -->
+            <div class="scratch-ticket-container" id="scratch-ticket-container">
+              <!-- Secret Underneath Date Card (Revealed live as user scratches) -->
+              <div class="scratch-under-card" id="scratch-under-card">
+                <div class="scratch-under-content">
+                  <div class="scratch-under-badge">
+                    <span class="ornament-left">❖</span>
+                    <span>SAVE THE DATE</span>
+                    <span class="ornament-right">❖</span>
+                  </div>
+                  <div class="scratch-under-main-date">
+                    <div class="scratch-under-day">Saturday</div>
+                    <div class="scratch-under-date-num">12TH DECEMBER 2026</div>
+                  </div>
+                  <div class="scratch-under-meta-line">
+                    <span><i class="fa-regular fa-clock"></i> 04:00 PM ONWARDS</span>
+                    <span class="meta-dot">✦</span>
+                    <span><i class="fa-solid fa-location-dot"></i> THE LEELA PALACE, UDAIPUR</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Unrevealed Scratch Surface -->
+              <div class="scratch-foil-box" id="scratch-foil-box">
+                <canvas id="scratch-canvas"></canvas>
+                <div class="scratch-prompt-overlay" id="scratch-prompt-overlay">
+                  <div class="scratch-magic-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                  <div class="scratch-prompt-text">✨ Scratch to Reveal Wedding Date ✨</div>
+                  <button class="btn-reveal-now" id="quick-scratch-btn" type="button">
+                    <i class="fa-solid fa-sparkles"></i> Quick Reveal
+                  </button>
+                </div>
+              </div>
+
+              <!-- Revealed Date, Time & Venue (Shows after scratch) -->
+              <div class="revealed-details-box" id="revealed-details-box">
+                <div class="wreath-meta-grid">
+                  <!-- Date -->
+                  <div class="wreath-meta-item">
+                    <div class="wreath-circle">
+                      <svg class="wreath-border-svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="42" fill="none" stroke="#c5a059" stroke-width="1.5" stroke-dasharray="3,3"/>
+                        <circle cx="50" cy="50" r="36" fill="none" stroke="#c5a059" stroke-width="1"/>
+                      </svg>
+                      <i class="fa-regular fa-calendar-days"></i>
+                    </div>
+                    <div class="meta-sub-day">Saturday</div>
+                    <div class="meta-main-title">12TH DECEMBER<br>2026</div>
+                    <div class="meta-gold-bullet">💛</div>
+                  </div>
+
+                  <div class="wreath-meta-divider"></div>
+
+                  <!-- Time -->
+                  <div class="wreath-meta-item">
+                    <div class="wreath-circle">
+                      <svg class="wreath-border-svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="42" fill="none" stroke="#c5a059" stroke-width="1.5" stroke-dasharray="3,3"/>
+                        <circle cx="50" cy="50" r="36" fill="none" stroke="#c5a059" stroke-width="1"/>
+                      </svg>
+                      <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div class="meta-sub-day">From</div>
+                    <div class="meta-main-title">04:00 PM<br>ONWARDS</div>
+                    <div class="meta-gold-bullet">💛</div>
+                  </div>
+
+                  <div class="wreath-meta-divider"></div>
+
+                  <!-- Venue -->
+                  <div class="wreath-meta-item">
+                    <div class="wreath-circle">
+                      <svg class="wreath-border-svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="42" fill="none" stroke="#c5a059" stroke-width="1.5" stroke-dasharray="3,3"/>
+                        <circle cx="50" cy="50" r="36" fill="none" stroke="#c5a059" stroke-width="1"/>
+                      </svg>
+                      <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="meta-sub-day">The Grand Palace</div>
+                    <div class="meta-main-title">THE LEELA PALACE<br>UDAIPUR</div>
+                    <div class="meta-gold-bullet">💛</div>
+                  </div>
+                </div>
+
+                <!-- Auspicious Countdown -->
+                <div class="hero-countdown-block">
+                  <div class="countdown-tag-line">Auspicious Countdown</div>
+                  <div class="countdown-digits-row">
+                    <div class="digit-card">
+                      <span class="digit-value" id="days">00</span>
+                      <span class="digit-title">Days</span>
+                    </div>
+                    <div class="digit-card">
+                      <span class="digit-value" id="hours">00</span>
+                      <span class="digit-title">Hours</span>
+                    </div>
+                    <div class="digit-card">
+                      <span class="digit-value" id="minutes">00</span>
+                      <span class="digit-title">Mins</span>
+                    </div>
+                    <div class="digit-card">
+                      <span class="digit-value" id="seconds">00</span>
+                      <span class="digit-title">Secs</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Romantic Closing Note (Template Style) -->
+            <div class="hero-romantic-footer">
+              <div class="romantic-script">We can't wait to celebrate with you!</div>
+              <div class="romantic-heart">💛</div>
+              <div class="romantic-caps">CELEBRATE LOVE, LAUGHTER &amp; A LIFETIME TOGETHER</div>
+            </div>
+
+            <!-- Action CTA Buttons -->
+            <div class="hero-cta-buttons">
+              <a href="#events" class="btn-primary"><i class="fa-solid fa-calendar-check"></i> View Schedule</a>
+              <a href="#rsvp" class="btn-secondary"><i class="fa-solid fa-pen-fancy"></i> RSVP Now</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION DIVIDER -->
+  <div class="royal-section-divider">
+    <span class="divider-line"></span>
+    <span class="divider-emblem">❖ &nbsp; ⚜ &nbsp; ❖</span>
+    <span class="divider-line"></span>
+  </div>
+
+  <!-- ==========================================================================
+       3. BLESSINGS & HOST FAMILIES
+       ========================================================================== -->
+  <section class="blessing-section" id="blessings">
+    <div class="container">
+      <span class="section-tag reveal">Warm Invitations</span>
+      <h2 class="section-heading reveal">Together With Their Families</h2>
+      <p class="section-desc reveal">
+        With the divine blessings of our ancestors and the grand traditions of Marwadi heritage, we solicit your gracious presence to bless the newlyweds.
+      </p>
+
+      <div class="family-grid">
+        <div class="family-card reveal-left">
+          <span class="family-title">Groom's Side</span>
+          <h3 class="family-names">The Sharma Family</h3>
+          <p class="family-relation">Parents: Smt. Sunita & Shri Ramesh Sharma</p>
+          <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Grandson of Late Smt. Rukmani & Shri Dwarkadas Sharma</p>
+        </div>
+
+        <div class="family-card reveal-right">
+          <span class="family-title">Bride's Side</span>
+          <h3 class="family-names">The Verma Family</h3>
+          <p class="family-relation">Parents: Smt. Pushpa & Shri Mahesh Verma</p>
+          <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Granddaughter of Late Smt. Shanti & Shri Mohanlal Verma</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION DIVIDER -->
+  <div class="royal-section-divider">
+    <span class="divider-line"></span>
+    <span class="divider-emblem">❖ &nbsp; ⚜ &nbsp; ❖</span>
+    <span class="divider-line"></span>
+  </div>
+
+  <!-- ==========================================================================
+       4. OUR LOVE STORY
+       ========================================================================== -->
+  <section class="story-section" id="story">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag reveal">A Journey Of Love</span>
+        <h2 class="section-heading reveal">Our Love Story</h2>
+        <p class="section-desc reveal">Every love story is beautiful, but ours is our absolute favorite.</p>
+      </div>
+
+      <div class="story-timeline">
+        <div class="story-item reveal-left">
+          <div class="story-badge"><i class="fa-solid fa-comments"></i></div>
+          <div class="story-content">
+            <span class="story-date">SPRING 2023</span>
+            <h3 class="story-title">First Hello</h3>
+            <p class="story-text">Introduced by mutual family friends, an innocent conversation turned into hours of shared laughter and instant connection.</p>
+          </div>
+        </div>
+
+        <div class="story-item reveal-right">
+          <div class="story-badge"><i class="fa-solid fa-mug-hot"></i></div>
+          <div class="story-content">
+            <span class="story-date">AUTUMN 2024</span>
+            <h3 class="story-title">The Coffee & Sunset</h3>
+            <p class="story-text">Over warm cups of spiced chai and a glowing sunset by Lake Pichola, we realized we wanted to walk through life side by side.</p>
+          </div>
+        </div>
+
+        <div class="story-item reveal-left">
+          <div class="story-badge"><i class="fa-solid fa-ring"></i></div>
+          <div class="story-content">
+            <span class="story-date">FEBRUARY 2025</span>
+            <h3 class="story-title">The Royal Proposal</h3>
+            <p class="story-text">Under a canopy of stars and fairy lights in Udaipur, Arun popped the question, and Meera joyfully said YES!</p>
+          </div>
+        </div>
+
+        <div class="story-item reveal-right">
+          <div class="story-badge"><i class="fa-solid fa-heart"></i></div>
+          <div class="story-content">
+            <span class="story-date">DECEMBER 2026</span>
+            <h3 class="story-title">The Forever Union</h3>
+            <p class="story-text">Now, surrounded by our beloved families and friends, we embark on the sacred journey of marriage!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION DIVIDER -->
+  <div class="royal-section-divider">
+    <span class="divider-line"></span>
+    <span class="divider-emblem">❖ &nbsp; ⚜ &nbsp; ❖</span>
+    <span class="divider-line"></span>
+  </div>
+
+  <!-- ==========================================================================
+       5. WEDDING FUNCTIONS & SCHEDULE
+       ========================================================================== -->
+  <section class="events-section" id="events">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag reveal">Marwadi Celebrations</span>
+        <h2 class="section-heading reveal">Wedding Functions</h2>
+        <p class="section-desc reveal">Join us across the auspicious festivities filled with music, dance, rituals, and feast.</p>
+      </div>
+
+      <div class="events-grid">
+        <!-- Event 1: Ganesh Sthapana & Mayra -->
+        <div class="event-card reveal" data-event-id="1">
+          <div class="event-img-wrapper">
+            <img src="assets/images/mayra.jpg" alt="Ganesh Sthapana and Mayra Ceremony">
+            <div class="event-img-overlay"></div>
+            <span class="event-number-badge">01</span>
+            <span class="event-tag"><i class="fa-solid fa-om"></i> DAY 1 MORNING</span>
+            <div class="event-img-caption">Auspicious Beginning &amp; Mama's Welcome</div>
+          </div>
+          <div class="event-details">
+            <div class="event-header-row">
+              <h3 class="event-title">Ganesh Sthapana &amp; Mayra</h3>
+              <div class="event-title-ornament">❖</div>
+            </div>
+            <p class="event-tagline">Invoking Lord Ganesha's divine blessings followed by the traditional Marwadi Bhaat &amp; Mayra welcome rituals.</p>
+            
+            <div class="event-divider"></div>
+
+            <ul class="event-meta-list">
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-calendar-check event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Date</span>
+                  <span class="meta-val">Thursday, 10th Dec 2026</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-clock event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Time</span>
+                  <span class="meta-val">10:00 AM Onwards</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-location-dot event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Venue</span>
+                  <span class="meta-val">Courtyard Mandap, The Leela Palace</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-vest-patches event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Dress Code</span>
+                  <span class="meta-val-badge">Traditional Marwadi / Bandhani</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="event-card-tap-hint">
+              <span>Click to view ceremony details</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="event-actions">
+              <button class="btn-calendar" onclick="event.stopPropagation(); addToCalendar('Ganesh Sthapana & Mayra', '20261210T100000Z', 'The Leela Palace Udaipur')">
+                <i class="fa-regular fa-calendar-plus"></i> Add to Calendar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2: Royal Mehndi & Sundowner -->
+        <div class="event-card reveal" data-event-id="2">
+          <div class="event-img-wrapper">
+            <img src="assets/images/mehendi.jpg" alt="Royal Mehndi Rasam & Sundowner">
+            <div class="event-img-overlay"></div>
+            <span class="event-number-badge">02</span>
+            <span class="event-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> DAY 1 AFTERNOON</span>
+            <div class="event-img-caption">Henna Artistry, Folk Beats &amp; High Tea</div>
+          </div>
+          <div class="event-details">
+            <div class="event-header-row">
+              <h3 class="event-title">Royal Mehndi &amp; Sundowner</h3>
+              <div class="event-title-ornament">❖</div>
+            </div>
+            <p class="event-tagline">An enchanting poolside celebration filled with intricate bridal henna, Rajasthani folk music, and gourmet treats.</p>
+            
+            <div class="event-divider"></div>
+
+            <ul class="event-meta-list">
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-calendar-check event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Date</span>
+                  <span class="meta-val">Thursday, 10th Dec 2026</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-clock event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Time</span>
+                  <span class="meta-val">03:30 PM Onwards</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-location-dot event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Venue</span>
+                  <span class="meta-val">Lakeside Deck &amp; Heritage Lawns</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-vest-patches event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Dress Code</span>
+                  <span class="meta-val-badge">Pastel Mint &amp; Floral Festive</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="event-card-tap-hint">
+              <span>Click to view ceremony details</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="event-actions">
+              <button class="btn-calendar" onclick="event.stopPropagation(); addToCalendar('Royal Mehndi & Sundowner', '20261210T153000Z', 'The Leela Palace Udaipur')">
+                <i class="fa-regular fa-calendar-plus"></i> Add to Calendar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3: Royal Sangeet & Dhol Night -->
+        <div class="event-card reveal" data-event-id="3">
+          <div class="event-img-wrapper">
+            <img src="assets/images/sangeet.jpg" alt="Royal Sangeet & Dhol Night">
+            <div class="event-img-overlay"></div>
+            <span class="event-number-badge">03</span>
+            <span class="event-tag"><i class="fa-solid fa-music"></i> DAY 1 NIGHT</span>
+            <div class="event-img-caption">Dance Extravaganza &amp; Midnight Dhol</div>
+          </div>
+          <div class="event-details">
+            <div class="event-header-row">
+              <h3 class="event-title">Royal Sangeet &amp; Dhol Night</h3>
+              <div class="event-title-ornament">❖</div>
+            </div>
+            <p class="event-tagline">An electrifying night of family performances, Bollywood dance battles, sparkling cocktails, and high-energy dhol beats.</p>
+            
+            <div class="event-divider"></div>
+
+            <ul class="event-meta-list">
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-calendar-check event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Date</span>
+                  <span class="meta-val">Thursday, 10th Dec 2026</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-clock event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Time</span>
+                  <span class="meta-val">07:30 PM Onwards</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-location-dot event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Venue</span>
+                  <span class="meta-val">Grand Crystal Ballroom</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-vest-patches event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Dress Code</span>
+                  <span class="meta-val-badge">Glamorous Indo-Western / Sparkle</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="event-card-tap-hint">
+              <span>Click to view ceremony details</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="event-actions">
+              <button class="btn-calendar" onclick="event.stopPropagation(); addToCalendar('Royal Sangeet & Dhol Night', '20261210T193000Z', 'The Leela Palace Udaipur')">
+                <i class="fa-regular fa-calendar-plus"></i> Add to Calendar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 4: Vibrant Haldi & Phoolon Ki Holi -->
+        <div class="event-card reveal" data-event-id="4">
+          <div class="event-img-wrapper">
+            <img src="assets/images/haldi.jpg" alt="Haldi & Phoolon Ki Holi Ceremony">
+            <div class="event-img-overlay"></div>
+            <span class="event-number-badge">04</span>
+            <span class="event-tag"><i class="fa-solid fa-sun"></i> DAY 2 MORNING</span>
+            <div class="event-img-caption">Turmeric Glow &amp; Rose Petal Shower</div>
+          </div>
+          <div class="event-details">
+            <div class="event-header-row">
+              <h3 class="event-title">Vibrant Haldi &amp; Phoolon Holi</h3>
+              <div class="event-title-ornament">❖</div>
+            </div>
+            <p class="event-tagline">A vibrant morning of auspicious ubtan, playful turmeric paste, blooming marigold showers, and joyful laughter.</p>
+            
+            <div class="event-divider"></div>
+
+            <ul class="event-meta-list">
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-calendar-check event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Date</span>
+                  <span class="meta-val">Friday, 11th Dec 2026</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-clock event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Time</span>
+                  <span class="meta-val">10:00 AM Onwards</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-location-dot event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Venue</span>
+                  <span class="meta-val">Poolside Deck &amp; Courtyard Lawns</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-vest-patches event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Dress Code</span>
+                  <span class="meta-val-badge">Sunshine Yellow / Marigold Shades</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="event-card-tap-hint">
+              <span>Click to view ceremony details</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="event-actions">
+              <button class="btn-calendar" onclick="event.stopPropagation(); addToCalendar('Vibrant Haldi Ceremony', '20261211T100000Z', 'The Leela Palace Udaipur')">
+                <i class="fa-regular fa-calendar-plus"></i> Add to Calendar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 5: Shahi Baraat & Royal Phere -->
+        <div class="event-card reveal" data-event-id="5">
+          <div class="event-img-wrapper">
+            <img src="assets/images/phere.jpg" alt="Shahi Baraat and Royal Phere">
+            <div class="event-img-overlay"></div>
+            <span class="event-number-badge">05</span>
+            <span class="event-tag"><i class="fa-solid fa-crown"></i> MAIN CEREMONY</span>
+            <div class="event-img-caption">Grand Baraat &amp; Sacred Vedic Vows</div>
+          </div>
+          <div class="event-details">
+            <div class="event-header-row">
+              <h3 class="event-title">Shahi Baraat &amp; Royal Phere</h3>
+              <div class="event-title-ornament">❖</div>
+            </div>
+            <p class="event-tagline">The grand arrival of the groom followed by the sacred Saat Phere solemnized under the illuminated royal mandap.</p>
+            
+            <div class="event-divider"></div>
+
+            <ul class="event-meta-list">
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-calendar-check event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Date</span>
+                  <span class="meta-val">Saturday, 12th Dec 2026</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-clock event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Time</span>
+                  <span class="meta-val">Baraat: 04:00 PM | Phere: 06:30 PM</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-location-dot event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Venue</span>
+                  <span class="meta-val">Royal Mandap Pavilion, Lake Pichola</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-vest-patches event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Dress Code</span>
+                  <span class="meta-val-badge">Royal Marwadi Couture (Red &amp; Gold)</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="event-card-tap-hint">
+              <span>Click to view ceremony details</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="event-actions">
+              <button class="btn-calendar" onclick="event.stopPropagation(); addToCalendar('Shahi Baraat and Royal Phere', '20261212T160000Z', 'The Leela Palace Udaipur')">
+                <i class="fa-regular fa-calendar-plus"></i> Add to Calendar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 6: Grand Wedding Reception -->
+        <div class="event-card reveal" data-event-id="6">
+          <div class="event-img-wrapper">
+            <img src="assets/images/reception.jpg" alt="Grand Wedding Reception & Gala">
+            <div class="event-img-overlay"></div>
+            <span class="event-number-badge">06</span>
+            <span class="event-tag"><i class="fa-solid fa-champagne-glasses"></i> GRAND FINALE</span>
+            <div class="event-img-caption">Gala Feast, Live Symphony &amp; Toast</div>
+          </div>
+          <div class="event-details">
+            <div class="event-header-row">
+              <h3 class="event-title">Grand Wedding Reception</h3>
+              <div class="event-title-ornament">❖</div>
+            </div>
+            <p class="event-tagline">An opulent evening of royal feast, sparkling toasts, cake cutting ceremony, and live symphony in honor of the newlyweds.</p>
+            
+            <div class="event-divider"></div>
+
+            <ul class="event-meta-list">
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-calendar-check event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Date</span>
+                  <span class="meta-val">Sunday, 13th Dec 2026</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-regular fa-clock event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Time</span>
+                  <span class="meta-val">07:00 PM Onwards</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-location-dot event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Venue</span>
+                  <span class="meta-val">Grand Palace Lawns &amp; Ballroom</span>
+                </div>
+              </li>
+              <li class="event-meta-item">
+                <div class="event-meta-icon-wrapper"><i class="fa-solid fa-vest-patches event-meta-icon"></i></div>
+                <div class="event-meta-text">
+                  <span class="meta-label">Dress Code</span>
+                  <span class="meta-val-badge">Black Tie &amp; Royal Evening Gown</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="event-card-tap-hint">
+              <span>Click to view ceremony details</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="event-actions">
+              <button class="btn-calendar" onclick="event.stopPropagation(); addToCalendar('Grand Wedding Reception', '20261213T190000Z', 'The Leela Palace Udaipur')">
+                <i class="fa-regular fa-calendar-plus"></i> Add to Calendar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ROYAL WEDDING FUNCTION DETAILS MODAL (OPENS ON CARD CLICK)
+       ========================================================================== -->
+  <div class="event-modal" id="event-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="event-modal-backdrop" id="event-modal-backdrop"></div>
+    <div class="event-modal-container">
+      <button class="event-modal-close" id="event-modal-close" aria-label="Close details">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <!-- Modal Header with Image Banner -->
+      <div class="modal-banner-wrapper">
+        <img src="assets/images/mayra.jpg" id="modal-event-img" alt="Wedding Function Ceremony">
+        <div class="modal-banner-overlay"></div>
+        <div class="modal-banner-scallop"></div>
+        <div class="modal-number-seal">
+          <span class="seal-prefix">№</span>
+          <span id="modal-event-num">01</span>
+        </div>
+        <span class="modal-tag-badge" id="modal-event-tag">DAY 1 MORNING</span>
+        <div class="modal-banner-caption-box">
+          <span class="caption-star">✦</span>
+          <span id="modal-event-caption">Auspicious Beginning</span>
+          <span class="caption-star">✦</span>
+        </div>
+      </div>
+
+      <!-- Modal Body Content -->
+      <div class="modal-body-content">
+        <!-- Auspicious Top Header Block -->
+        <div class="modal-header-block">
+          <div class="modal-auspicious-mantra">
+            <span class="mantra-sparkle">❖</span>
+            <span>|| ॐ श्री गणेशाय नमः ||</span>
+            <span class="mantra-sparkle">❖</span>
+          </div>
+          <h2 class="modal-title" id="modal-event-title">Ganesh Sthapana &amp; Mayra</h2>
+          <div class="modal-subtitle" id="modal-event-subtitle">Auspicious Beginning &amp; Mama's Welcome</div>
+          
+          <div class="modal-gold-divider">
+            <span class="divider-line"></span>
+            <span class="divider-icon">💛 ❖ 💛</span>
+            <span class="divider-line"></span>
+          </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="modal-section-card about-card">
+          <div class="modal-card-heading">
+            <div class="heading-icon-badge"><i class="fa-solid fa-feather-pointed"></i></div>
+            <span>Ceremonial Significance &amp; Traditions</span>
+          </div>
+          <p class="modal-description" id="modal-event-desc"></p>
+        </div>
+
+        <!-- Timeline / Itinerary -->
+        <div class="modal-section-card timeline-card">
+          <div class="modal-card-heading">
+            <div class="heading-icon-badge"><i class="fa-regular fa-clock"></i></div>
+            <span>Ceremony Itinerary &amp; Milestones</span>
+          </div>
+          <ul class="modal-timeline-list" id="modal-event-timeline">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+
+        <!-- Logistics Grid (4 Luxury Tiles) -->
+        <div class="modal-meta-grid">
+          <!-- Date Tile -->
+          <div class="modal-meta-box">
+            <div class="modal-meta-icon"><i class="fa-regular fa-calendar-check"></i></div>
+            <div class="modal-meta-info">
+              <span class="modal-meta-label">Date &amp; Day</span>
+              <span class="modal-meta-value" id="modal-event-date">Thursday, 10th Dec 2026</span>
+            </div>
+          </div>
+
+          <!-- Time Tile -->
+          <div class="modal-meta-box">
+            <div class="modal-meta-icon"><i class="fa-regular fa-clock"></i></div>
+            <div class="modal-meta-info">
+              <span class="modal-meta-label">Ceremony Timings</span>
+              <span class="modal-meta-value" id="modal-event-time">10:00 AM Onwards</span>
+            </div>
+          </div>
+
+          <!-- Venue Tile -->
+          <div class="modal-meta-box venue-box">
+            <div class="modal-meta-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="modal-meta-info">
+              <span class="modal-meta-label">Palace Venue</span>
+              <span class="modal-meta-value" id="modal-event-venue">Courtyard Mandap, The Leela Palace</span>
+            </div>
+          </div>
+
+          <!-- Dress Code Tile with Swatches -->
+          <div class="modal-meta-box dress-code-box">
+            <div class="modal-meta-icon"><i class="fa-solid fa-vest-patches"></i></div>
+            <div class="modal-meta-info" style="width: 100%;">
+              <span class="modal-meta-label">Attire &amp; Recommended Shades</span>
+              <span class="modal-meta-value" id="modal-event-dress">Traditional Marwadi / Bandhani</span>
+              <div class="modal-swatches-row" id="modal-event-swatches">
+                <!-- Dynamically populated color swatches -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guest Advisory / Hospitality Note -->
+        <div class="modal-guest-note">
+          <div class="note-icon-circle"><i class="fa-solid fa-bell-concierge"></i></div>
+          <div class="note-text-content">
+            <strong class="note-title">Hospitality &amp; Guest Care:</strong>
+            <span id="modal-event-guest-note">Concierge assistance and luxury transfers will be active from the hotel lobby 20 minutes prior to ceremony start.</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="modal-actions-row">
+          <button class="modal-btn-primary" id="modal-btn-calendar">
+            <i class="fa-regular fa-calendar-plus"></i> Add Event to Calendar
+          </button>
+          <a href="https://maps.google.com/?q=The+Leela+Palace+Udaipur" target="_blank" rel="noopener" class="modal-btn-secondary">
+            <i class="fa-solid fa-map-location-dot"></i> Palace Map Directions
+          </a>
+          <button class="modal-btn-tertiary" id="modal-btn-close">
+            <i class="fa-solid fa-xmark"></i> Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION DIVIDER -->
+  <div class="royal-section-divider">
+    <span class="divider-line"></span>
+    <span class="divider-emblem">❖ &nbsp; ⚜ &nbsp; ❖</span>
+    <span class="divider-line"></span>
+  </div>
+
+  <!-- ==========================================================================
+       6. PHOTO GALLERY
+       ========================================================================== -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag reveal">Memories</span>
+        <h2 class="section-heading reveal">Photo Gallery</h2>
+        <p class="section-desc reveal">Glimpses of love, joy, and unforgettable moments.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="assets/images/hero-couple.jpg" alt="Arun & Meera Floral Portrait">
+          <div class="gallery-item-overlay">
+            <span class="gallery-caption">The Royal Couple</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="assets/images/gallery-1.jpg" alt="Palace Courtyard Portrait">
+          <div class="gallery-item-overlay">
+            <span class="gallery-caption">Udaipur Palace Romance</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="assets/images/haldi.jpg" alt="Haldi Smiles">
+          <div class="gallery-item-overlay">
+            <span class="gallery-caption">Haldi Laughter</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="assets/images/sangeet.jpg" alt="Mehendi Bride">
+          <div class="gallery-item-overlay">
+            <span class="gallery-caption">Mehendi & Sangeet Night</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="assets/images/phere.jpg" alt="Mandap Phere">
+          <div class="gallery-item-overlay">
+            <span class="gallery-caption">Sacred Phere Ritual</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="assets/images/reception.jpg" alt="Reception Celebration">
+          <div class="gallery-item-overlay">
+            <span class="gallery-caption">Grand Evening Reception</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <div class="lightbox-content">
+      <img src="" id="lightbox-img" alt="Enlarged Gallery Photo">
+    </div>
+  </div>
+
+  <!-- SECTION DIVIDER -->
+  <div class="royal-section-divider">
+    <span class="divider-line"></span>
+    <span class="divider-emblem">❖ &nbsp; ⚜ &nbsp; ❖</span>
+    <span class="divider-line"></span>
+  </div>
+
+  <!-- ==========================================================================
+       7. VENUE DETAILS & ACCOMMODATION
+       ========================================================================== -->
+  <section class="venue-section" id="venue">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag reveal">Location & Stay</span>
+        <h2 class="section-heading reveal">The Destination</h2>
+        <p class="section-desc reveal">We have arranged luxury stays for all our outstation family and guests.</p>
+      </div>
+
+      <div class="venue-card reveal">
+        <h3 class="venue-name">The Leela Palace, Udaipur</h3>
+        <p class="venue-address"><i class="fa-solid fa-location-dot" style="color: var(--gold-primary);"></i> Lake Pichola, P.O. Box No. 125, Udaipur, Rajasthan 313001, India</p>
+
+        <div class="venue-features">
+          <div class="venue-feature-item">
+            <i class="fa-solid fa-plane-arrival venue-feature-icon"></i>
+            <div class="venue-feature-title">Nearest Airport</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Maharana Pratap Airport (24 km / 45 mins)</p>
+          </div>
+          <div class="venue-feature-item">
+            <i class="fa-solid fa-train venue-feature-icon"></i>
+            <div class="venue-feature-title">Railway Station</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Udaipur City Railway Station (4 km / 15 mins)</p>
+          </div>
+          <div class="venue-feature-item">
+            <i class="fa-solid fa-hotel venue-feature-icon"></i>
+            <div class="venue-feature-title">Guest Hospitality</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Dedicated Concierge & Chauffeur Pickup</p>
+          </div>
+        </div>
+
+        <a href="https://maps.google.com/?q=The+Leela+Palace+Udaipur" target="_blank" rel="noopener" class="btn-primary">
+          <i class="fa-solid fa-map-location-dot"></i> Get Directions On Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION DIVIDER -->
+  <div class="royal-section-divider">
+    <span class="divider-line"></span>
+    <span class="divider-emblem">❖ &nbsp; ⚜ &nbsp; ❖</span>
+    <span class="divider-line"></span>
+  </div>
+
+  <!-- ==========================================================================
+       8. RSVP & BLESSINGS FORM
+       ========================================================================== -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag reveal">Join The Celebration</span>
+        <h2 class="section-heading reveal">RSVP & Send Blessings</h2>
+        <p class="section-desc reveal">Please kindly respond by November 15, 2026 to help us make seamless arrangements for you.</p>
+      </div>
+
+      <div class="rsvp-form-card reveal">
+        <form id="rsvp-form">
+          <div class="form-group">
+            <label class="form-label" for="guest-name">Full Name *</label>
+            <input type="text" id="guest-name" class="form-control" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="guest-phone">Phone Number / WhatsApp *</label>
+            <input type="tel" id="guest-phone" class="form-control" placeholder="+91 98765 43210" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Will You Be Attending? *</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="attendance" value="yes" checked> Joyfully Accepts
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="attendance" value="no"> Regretfully Declines
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="guest-count">Number of Attending Guests</label>
+            <select id="guest-count" class="form-control">
+              <option value="1">1 Person</option>
+              <option value="2">2 Persons (Couple)</option>
+              <option value="3">3 Persons (Family)</option>
+              <option value="4">4+ Persons (Family Group)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="guest-diet">Dietary Preferences</label>
+            <select id="guest-diet" class="form-control">
+              <option value="pure-veg">Pure Jain / Pure Vegetarian</option>
+              <option value="standard-veg">Standard Vegetarian / Marwadi Thali</option>
+              <option value="other">No Preference / Special Request</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="guest-wishes">Blessings & Message For Arun & Meera</label>
+            <textarea id="guest-wishes" class="form-control" rows="4" placeholder="Write your sweet wishes for the bride & groom..."></textarea>
+          </div>
+
+          <div class="text-center" style="margin-top: 2rem;">
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-paper-plane"></i> Send RSVP & Blessings
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS MODAL -->
+  <div class="success-modal" id="success-modal">
+    <div class="success-content">
+      <div class="success-icon"><i class="fa-solid fa-heart"></i></div>
+      <h3 style="font-family: var(--font-heading); font-size: 2rem; color: var(--teal-primary); margin-bottom: 0.5rem;">Thank You!</h3>
+      <p style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        Your response and warm blessings have been received with love. We can't wait to celebrate with you in Udaipur!
+      </p>
+      <button class="btn-primary" id="close-modal-btn">Close</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer>
+    <div class="container">
+      <h2 class="footer-names">Arun & Meera</h2>
+      <div class="footer-hashtag">#ArunWedsMeera</div>
+      <p style="font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--gold-light);">
+        "Your presence is the greatest gift of all."
+      </p>
+      <div class="footer-copy">
+        &copy; 2026 Arun & Meera Wedding Invitation. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

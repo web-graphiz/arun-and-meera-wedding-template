@@ -1,0 +1,59 @@
+/* ==========================================================================
+   COMPONENT: FLOATING AUDIO PLAYER / EQUALIZER CONTROLLER
+   ========================================================================== */
+
+.audio-controller {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  background: var(--teal-primary);
+  border: 2px solid var(--gold-primary);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-gold);
+  transition: var(--transition);
+  color: var(--gold-light);
+}
+
+.audio-controller:hover {
+  transform: scale(1.1);
+  background: var(--gold-primary);
+  color: var(--teal-dark);
+}
+
+.equalizer-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 16px;
+}
+
+.equalizer-bar {
+  width: 3px;
+  background: currentColor;
+  border-radius: 2px;
+  height: 4px;
+}
+
+.audio-playing .equalizer-bar:nth-child(1) {
+  animation: eq-anim 0.8s infinite ease-in-out alternate;
+}
+
+.audio-playing .equalizer-bar:nth-child(2) {
+  animation: eq-anim 0.5s infinite ease-in-out alternate 0.2s;
+}
+
+.audio-playing .equalizer-bar:nth-child(3) {
+  animation: eq-anim 0.9s infinite ease-in-out alternate 0.4s;
+}
+
+@keyframes eq-anim {
+  0% { height: 4px; }
+  100% { height: 18px; }
+}
